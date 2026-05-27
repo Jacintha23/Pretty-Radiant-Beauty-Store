@@ -50,9 +50,9 @@ public class Main
         // Shade options
         System.out.println("Select your desired shade: ");
         System.out.println("F) Fair" +
-                           "M) Medium" +
-                           "D) Dark" +
-                           "DE) Deep");
+                "M) Medium" +
+                "D) Dark" +
+                "DE) Deep");
         String shadeChoice = scanner.nextLine();
         // Form options
         System.out.println("Select a foundation formulation: ");
