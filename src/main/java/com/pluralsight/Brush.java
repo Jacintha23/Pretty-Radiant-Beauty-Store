@@ -8,9 +8,11 @@ public class Brush extends Order
     // Brush price
     private double standardBPrice = 10.00;
 
-
-
-
+    public Brush(double standardBSize, double standardBPrice)
+    {
+        this.standardBSize = standardBSize;
+        this.standardBPrice = standardBPrice;
+    }
 
 
 
