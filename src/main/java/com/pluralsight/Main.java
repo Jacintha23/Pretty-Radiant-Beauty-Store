@@ -27,7 +27,7 @@ public class Main
             switch (scanner.nextLine().toUpperCase())
             {
                 case "1":
-                    addNewOrder();
+                    orderScreen();
                     break;
                 case "0":
                     System.out.println("Have a nice day, until next time.");
