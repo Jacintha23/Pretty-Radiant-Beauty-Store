@@ -127,7 +127,7 @@ public class Foundation extends Order
     public double getTotal()
     {
         double total = 0;
-       //Size
+        //Size
         switch(size.toUpperCase())
         {
             case "T":
@@ -137,7 +137,7 @@ public class Foundation extends Order
                 }
                 else
                 {
-                   total += sTravelPrice;
+                    total += sTravelPrice;
                 }
                 break;
             case "S":
