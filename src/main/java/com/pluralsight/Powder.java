@@ -18,6 +18,7 @@ public class Powder extends Order
         this.standardPPrice = standardPPrice;
     }
 
+
     public double getTravelPSize() {
         return travelPSize;
     }

@@ -2,7 +2,11 @@ package com.pluralsight;
 
 public class Brush extends Order
 {
-    private double price;
+    // Brush size in inches
+    private double standardBSize = 6.0;
+
+    // Brush price
+    private double standardBPrice = 10.00;
 
 
 
