@@ -12,7 +12,7 @@ public class Order
         private List<Powder> powders;
         private List<Brush> brushes;
         // Store total price
-        private BigDecimal totalPrice;
+        private double totalPrice;
 
         // Constructor: initialize the class properties
     public Order()
@@ -20,16 +20,16 @@ public class Order
             this.foundations = new ArrayList<>();
             this.powders = new ArrayList<>();
             this.brushes = new ArrayList<>();
-            this.totalPrice = BigDecimal.ZERO;
+            this.totalPrice = 0;
     }
 
     private void updateTotal()
     {
-        totalPrice = BigDecimal.ZERO;
+        totalPrice = 0;
 
         for (Foundation foundation : foundations)
         {
-         //   totalPrice = totalPrice.add(foundation.getPrice());
+            totalPrice += (foundation.getTotal());
         }
 
         for (Powder powder : powders)
@@ -67,7 +67,7 @@ public class Order
         }
 
         // getTotal method: return total price of order
-        public BigDecimal getTotal ()
+        public double getTotal ()
         {
             return totalPrice;
         }

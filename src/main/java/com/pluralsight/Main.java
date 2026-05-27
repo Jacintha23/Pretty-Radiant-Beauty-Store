@@ -120,7 +120,7 @@ public class Main
         // Instance of foundation
         Foundation foundation = new Foundation(qualityChoice, sizeChoice, shadeChoice,formChoice,finishChoice, skinChoice,fragranceChoice);
         orders.add(foundation);
-        System.out.println(orders.getLast());
+        System.out.println(foundation.getTotal());
     }
 
 

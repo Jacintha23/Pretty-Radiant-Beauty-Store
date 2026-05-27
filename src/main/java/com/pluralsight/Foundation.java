@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
 public class Foundation extends Order
 {
@@ -14,10 +15,10 @@ public class Foundation extends Order
 
     // Standard prices
     private double sTravelPrice = 5.00;
-    private double standardPrice = 1000.00;
+    private double standardPrice = 10.00;
     private double sValuePrice = 15.00;
 
-    // Luxury prices
+    // Luxury add on prices
     private double luxeTravelPrice = 15.00;
     private double luxeStandardPrice = 30.00;
     private double luxeValuePrice = 45.00;
@@ -122,5 +123,45 @@ public class Foundation extends Order
         return fragrance;
     }
 
+    @Override
+    public double getTotal()
+    {
+        double total = 0;
+       //Size
+        switch(size.toUpperCase())
+        {
+            case "T":
+                if(quality.toUpperCase().equals("L"))
+                {
+                    total += luxeTravelPrice;
+                }
+                else
+                {
+                   total += sTravelPrice;
+                }
+                break;
+            case "S":
+                if(quality.toUpperCase().equals("L"))
+                {
+                    total += luxeStandardPrice;
+                }
+                else {
+                    total += standardPrice;
+                }
+                break;
+            case "V":
+                if(quality.toUpperCase().equals("L"))
+                {
+                    total += luxeValuePrice;
+                }
+                else {
+                    total += sValuePrice;
+                }
+                break;
+        }
+
+        return total;
+
+    }
 
 }
