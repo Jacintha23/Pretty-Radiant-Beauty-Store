@@ -15,9 +15,11 @@ public class Brush extends Order
     }
 
 
+    public double getStandardBSize() {
+        return standardBSize;
+    }
 
-
-
-
-
+    public double getStandardBPrice() {
+        return standardBPrice;
+    }
 }
