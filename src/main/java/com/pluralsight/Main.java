@@ -38,8 +38,43 @@ public class Main
         }
     }
 
+    // Add second menu
+    public static void orderScreen()
+    {
+        while(true)
+        {
+            System.out.println("What would you like to order?");
+            System.out.println("1) New foundation");
+            System.out.println("2) New powder");
+            System.out.println("3) New brush");
+            System.out.println("4) Checkout");
+            System.out.println("0) Cancel order");
+            switch (scanner.nextLine().toUpperCase())
+            {
+                case "1":
+                    addNewFoundationOrder();
+                    break;
+                case "2":
+                    System.out.println("New powder");
+                    break;
+                case "3":
+                    System.out.println("New Brush");
+                    break;
+                case "4":
+                    System.out.println("Checkout");
+                    break;
+                case "0":
+                    System.out.println("You have canceled your order.");
+                    return;
+                default:
+                    System.out.println("Uh oh! This selection is invalid, please try again.");
+            }
+        }
+    }
 
-    public static void addNewOrder()
+
+
+    public static void addNewFoundationOrder()
     {   // Intro and quality options
         System.out.println("Let's build your perfect foundation!");
         System.out.println("Select a quality preference: ");

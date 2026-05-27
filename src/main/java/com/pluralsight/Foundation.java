@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.math.BigDecimal;
+
 public class Foundation extends Order
 {
     private String quality; //Standard or Luxury
@@ -12,7 +14,7 @@ public class Foundation extends Order
 
     // Standard prices
     private double sTravelPrice = 5.00;
-    private double standardPrice = 10.00;
+    private double standardPrice = 1000.00;
     private double sValuePrice = 15.00;
 
     // Luxury prices
@@ -56,67 +58,84 @@ public class Foundation extends Order
         return quality;
     }
 
-    public double getSize() {
+    public double getSize()
+    {
         return size;
     }
 
-    public double getTravelSize() {
+    public double getTravelSize()
+    {
         return travelSize;
     }
 
-    public double getStandardSize() {
+    public double getStandardSize()
+    {
         return standardSize;
     }
 
-    public double getValueSize() {
+    public double getValueSize()
+    {
         return valueSize;
     }
 
-    public double getsTravelPrice() {
+    public double getsTravelPrice()
+    {
         return sTravelPrice;
     }
 
-    public double getStandardPrice() {
+    public double getStandardPrice()
+    {
         return standardPrice;
     }
 
-    public double getsValuePrice() {
+    public double getsValuePrice()
+    {
         return sValuePrice;
     }
 
-    public double getLuxeTravelPrice() {
+    public double getLuxeTravelPrice()
+    {
         return luxeTravelPrice;
     }
 
-    public double getLuxeStandardPrice() {
+    public double getLuxeStandardPrice()
+    {
         return luxeStandardPrice;
     }
 
-    public double getLuxeValuePrice() {
+    public double getLuxeValuePrice()
+    {
         return luxeValuePrice;
     }
 
-    public String getShade() {
+    public String getShade()
+    {
         return shade;
     }
 
-    public String getForm() {
+    public String getForm()
+    {
         return form;
     }
 
-    public String getFinish() {
+    public String getFinish()
+    {
         return finish;
     }
 
-    public String getSkinType() {
+    public String getSkinType()
+    {
         return skinType;
     }
 
-    public boolean isFragrance() {
+    public boolean isFragrance()
+    {
         return fragrance;
     }
 
-    public boolean isCruelty() {
+    public boolean isCruelty()
+    {
         return cruelty;
     }
+
 }

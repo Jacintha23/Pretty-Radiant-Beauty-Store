@@ -23,6 +23,28 @@ public class Order
             this.totalPrice = BigDecimal.ZERO;
     }
 
+    private void updateTotal()
+    {
+        totalPrice = BigDecimal.ZERO;
+
+        for (Foundation foundation : foundations)
+        {
+            totalPrice = totalPrice.add(foundation.getPrice());
+        }
+
+        for (Powder powder : powders)
+        {
+            totalPrice = totalPrice.add(powder.getPrice());
+        }
+
+        for (Brush brush : brushes)
+        {
+            totalPrice = totalPrice.add(brush.getPrice());
+        }
+    }
+
+
+
         // addSandwich method: add sandwich to list
         public void addFoundation (Foundation foundation)
         {
