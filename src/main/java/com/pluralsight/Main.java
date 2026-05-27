@@ -27,9 +27,13 @@ public class Main
             switch (scanner.nextLine().toUpperCase())
             {
                 case "1":
-                addNewOrder();
-                break;
-
+                    addNewOrder();
+                    break;
+                case "0":
+                    System.out.println("Have a nice day, until next time.");
+                    return;
+                default:
+                    System.out.println("Uh oh! This selection is invalid, please try again.");
             }
         }
     }
@@ -58,14 +62,17 @@ public class Main
         System.out.println("Select a foundation formulation: ");
         System.out.println("L) Liquid or P) Powder");
         String formChoice = scanner.nextLine();
+
         // Finish options
         System.out.println("Select a finish: ");
         System.out.println("D) Dewy or M) Matte");
         String finishChoice = scanner.nextLine();
+
         // Skin-type choices
         System.out.println("What is your skin type?");
         System.out.println(("O) Oily, D) Dry or C) Combo"));
         String skinChoice = scanner.nextLine();
+
         //Fragrance choices - premium
         System.out.println("Select a fragrance option");
         System.out.println("F) Fragrance or FF) Fragrance-Free");
@@ -73,14 +80,6 @@ public class Main
 
         //switch (scanner.nextLine().toUpperCase())
     }
-
-
-
-
-
-
-
-
 
 
 
