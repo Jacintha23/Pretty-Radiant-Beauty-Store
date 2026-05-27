@@ -56,7 +56,7 @@ public class Main
                     addNewFoundationOrder();
                     break;
                 case "2":
-                    System.out.println("New powder");
+                    addNewPowderOrder();
                     break;
                 case "3":
                     System.out.println("New Brush");
@@ -92,10 +92,10 @@ public class Main
         String sizeChoice = scanner.nextLine();
         // Shade options
         System.out.println("Select your desired shade: ");
-        System.out.println("F) Fair" +
-                "M) Medium" +
-                "D) Dark" +
-                "DE) Deep");
+        System.out.println(" F) Fair " +
+                           " M) Medium " +
+                           " D) Dark " +
+                           " DE) Deep");
         String shadeChoice = scanner.nextLine();
         // Form options
         System.out.println("Select a foundation formulation: ");
@@ -123,6 +123,20 @@ public class Main
         System.out.println(foundation.getTotal());
     }
 
+    public static void addNewPowderOrder()
+    {
+        Scanner scanner = new Scanner(System.in);
+        // Powder size selection
+        System.out.println("Please select a size for translucent powder");
+        System.out.println(" T) Travel size 0.25 oz " +
+                           " S) Standard size 1.0 oz");
+        String pSizeChoice = scanner.nextLine();
+
+        //Instance of powder
+        Powder powder = new Powder(pSizeChoice);
+        orders.add(powder);
+        System.out.println(powder.getTotal());
+    }
 
 
 }

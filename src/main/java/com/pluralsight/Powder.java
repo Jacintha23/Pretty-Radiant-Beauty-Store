@@ -3,6 +3,7 @@ package com.pluralsight;
 public class Powder extends Order
 {
     // Sizes in oz
+    private String powderSize;
     private double travelPSize = 0.25;
     private double standardPSize = 1.0;
 
@@ -10,33 +11,11 @@ public class Powder extends Order
     private double travelPPrice = 10.00;
     private double standardPPrice = 15.00;
 
-    public Powder(double travelPSize, double standardPSize, double travelPPrice, double standardPPrice)
-    {
-        this.travelPSize = travelPSize;
-        this.standardPSize = standardPSize;
-        this.travelPPrice = travelPPrice;
-        this.standardPPrice = standardPPrice;
-    }
+    // Possible quality option for powders...
 
-
-    public double getTravelPSize()
+    public Powder(String powderSize)
     {
-        return travelPSize;
-    }
-
-    public double getStandardPSize()
-    {
-        return standardPSize;
-    }
-
-    public double getTravelPPrice()
-    {
-        return travelPPrice;
-    }
-
-    public double getStandardPPrice()
-    {
-        return standardPPrice;
+        this.powderSize = powderSize;
     }
 
 

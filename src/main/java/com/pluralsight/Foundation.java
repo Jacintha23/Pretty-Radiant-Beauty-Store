@@ -23,7 +23,6 @@ public class Foundation extends Order
     private double luxeStandardPrice = 30.00;
     private double luxeValuePrice = 45.00;
 
-    // Shades
     private String shade;
     private String form;
     private String finish;
