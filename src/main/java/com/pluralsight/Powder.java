@@ -18,7 +18,45 @@ public class Powder extends Order
         this.powderSize = powderSize;
     }
 
+    public String powderSize() {
+        return powderSize;
+    }
 
+    public double travelPSize() {
+        return travelPSize;
+    }
+
+    public double standardPSize() {
+        return standardPSize;
+    }
+
+    public double travelPPrice() {
+        return travelPPrice;
+    }
+
+    public double standardPPrice() {
+        return standardPPrice;
+    }
+
+    @Override
+    public double getTotal()
+    {
+        double total = 0;
+        //Size
+        switch(powderSize.toUpperCase())
+        {
+            case "T":
+                total += travelPPrice;
+                break;
+            case "S":
+                total += standardPPrice;
+                break;
+        }
+
+        return total;
+
+
+    }
 }
 
 

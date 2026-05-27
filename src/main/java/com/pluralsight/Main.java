@@ -74,7 +74,6 @@ public class Main
     }
 
 
-
     public static void addNewFoundationOrder()
     {
         Scanner scanner = new Scanner(System.in);
@@ -137,6 +136,7 @@ public class Main
         orders.add(powder);
         System.out.println(powder.getTotal());
     }
+
 
 
 }
