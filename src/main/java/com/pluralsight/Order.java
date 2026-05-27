@@ -29,17 +29,17 @@ public class Order
 
         for (Foundation foundation : foundations)
         {
-            totalPrice = totalPrice.add(foundation.getPrice());
+         //   totalPrice = totalPrice.add(foundation.getPrice());
         }
 
         for (Powder powder : powders)
         {
-            totalPrice = totalPrice.add(powder.getPrice());
+        //    totalPrice = totalPrice.add(powder.getPrice());
         }
 
         for (Brush brush : brushes)
         {
-            totalPrice = totalPrice.add(brush.getPrice());
+        //    totalPrice = totalPrice.add(brush.getPrice());
         }
     }
 

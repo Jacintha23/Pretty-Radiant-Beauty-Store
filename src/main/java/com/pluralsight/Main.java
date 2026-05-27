@@ -7,18 +7,17 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main
 {
-    static Scanner scanner;
-    static ArrayList<Order> orders;
+
+   static ArrayList<Order> orders = new ArrayList<Order>();
 
 
-    public Main()
-    {
-    }
    public static void main(String[] args)
     {
-    HomeScreen();
+        HomeScreen();
     }
-    public static void HomeScreen() {
+    public static void HomeScreen()
+    {
+        Scanner scanner = new Scanner(System.in);
         while(true)
         {
             System.out.println("Hello Beautiful! What brings you in today?");
@@ -41,6 +40,8 @@ public class Main
     // Add second menu
     public static void orderScreen()
     {
+        Scanner scanner = new Scanner(System.in);
+
         while(true)
         {
             System.out.println("What would you like to order?");
@@ -75,7 +76,10 @@ public class Main
 
 
     public static void addNewFoundationOrder()
-    {   // Intro and quality options
+    {
+        Scanner scanner = new Scanner(System.in);
+
+        // Intro and quality options
         System.out.println("Let's build your perfect foundation!");
         System.out.println("Select a quality preference: ");
         System.out.println("S) Standard or L) Luxury"); //Display prices for choice
@@ -113,7 +117,10 @@ public class Main
         System.out.println("F) Fragrance or FF) Fragrance-Free");
         String fragranceChoice = scanner.nextLine();
 
-        //switch (scanner.nextLine().toUpperCase())
+        // Instance of foundation
+        Foundation foundation = new Foundation(qualityChoice, sizeChoice, shadeChoice,formChoice,finishChoice, skinChoice,fragranceChoice);
+        orders.add(foundation);
+        System.out.println(orders.getLast());
     }
 
 
