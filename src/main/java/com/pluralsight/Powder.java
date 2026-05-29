@@ -62,12 +62,22 @@ public class Powder extends Order
 
     }
 
+    @Override
     public String toString()
     {
-        // public Powder(String powderSize)
+        String sizeLabel;
+        switch(powderSize.toUpperCase())
+        {
+            case "T": sizeLabel = "Travel (0.25 oz)"; break;
+            case "S": sizeLabel = "Standard (1.0 oz)"; break;
+            default:  sizeLabel = powderSize;
+        }
 
-        return this.powderSize + " | " +this.getTotal();
-    };
+        return "Powder | " +
+                "Size: " + sizeLabel + " | " +
+                "Price: $" + String.format("%.2f", getTotal());
+    }
+
 
 }
 

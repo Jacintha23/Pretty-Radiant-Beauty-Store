@@ -63,8 +63,9 @@ public class Main {
                     break;
                 case "4":
                     System.out.println("Checkout");
-                    receiptWriter.saveReceipt(orders.getLast());
-                    break;
+                    orders.add(currentOrder);
+                    receiptWriter.saveReceipt(currentOrder);
+                    return;
                 case "0":
                     System.out.println("You have canceled your order.");
                     return;
@@ -124,7 +125,7 @@ public class Main {
 
         // Instance of foundation
         Foundation foundation = new Foundation(qualityChoice, sizeChoice, shadeChoice, formChoice, finishChoice, skinChoice, fragranceChoice);
-        orders.add(foundation);
+        currentOrder.addFoundation(foundation);
         System.out.println(foundation.getTotal());
     }
 
@@ -139,7 +140,7 @@ public class Main {
 
         //Instance of powder
         Powder powder = new Powder(pSizeChoice);
-        orders.add(powder);
+        currentOrder.addPowder(powder);
         System.out.println(powder.getTotal());
     }
 
@@ -153,7 +154,7 @@ public class Main {
 
         //Instance of brush
         Brush brush = new Brush(bSizeChoice);
-        orders.add(brush);
+        currentOrder.addBrush(brush);
         System.out.println(brush.getTotal());
     }
 

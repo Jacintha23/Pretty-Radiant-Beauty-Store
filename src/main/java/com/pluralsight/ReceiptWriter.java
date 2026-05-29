@@ -14,7 +14,7 @@ public class ReceiptWriter
         // generate filename using current date/time (yyyyMMdd-HHmmss.txt)
         File directory = new File("src/main/resources/Receipts");
         if (!directory.exists()) {
-            directory.mkdirs();
+            directory.mkdirs(); //mkdirs is a method that creates a directory
         }
 
         String filename = "src/main/resources/Receipts/" + generateTimestamp() + ".txt";

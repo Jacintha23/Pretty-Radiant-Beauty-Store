@@ -43,10 +43,20 @@ public class Brush extends Order
         return total;
     }
 
+    @Override
     public String toString()
     {
-        // public Brush(String brushSize)
-        return this.brushSize + " | " +this.getTotal();
-    };
+        String sizeLabel;
+        switch(brushSize.toUpperCase())
+        {
+            case "S": sizeLabel = "Vegan Standard (6.0 in)"; break;
+            default:  sizeLabel = brushSize;
+        }
+
+        return "Brush | " +
+                "Size: " + sizeLabel + " | " +
+                "Price: $" + String.format("%.2f", getTotal());
+    }
+
 }
 
