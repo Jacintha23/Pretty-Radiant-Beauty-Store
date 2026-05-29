@@ -10,13 +10,16 @@ public class Main {
     static ArrayList<Order> orders = new ArrayList<Order>();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         HomeScreen();
     }
 
     public static void HomeScreen() {
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+        while (true)
+        {
+            System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
             System.out.println("Hello Beautiful! What brings you in today?");
             System.out.println("1) New Order");
             System.out.println("0) Exit the application");
@@ -34,7 +37,8 @@ public class Main {
     }
 
     // Add second menu
-    public static void orderScreen() {
+    public static void orderScreen()
+    {
         Scanner scanner = new Scanner(System.in);
         //Temporary position
         ReceiptWriter receiptWriter = new ReceiptWriter();
@@ -54,7 +58,7 @@ public class Main {
                     addNewPowderOrder();
                     break;
                 case "3":
-                    System.out.println("New Brush");
+                    addNewBrushOrder();
                     break;
                 case "4":
                     System.out.println("Checkout");
@@ -70,7 +74,8 @@ public class Main {
     }
 
 
-    public static void addNewFoundationOrder() {
+    public static void addNewFoundationOrder()
+    {
         Scanner scanner = new Scanner(System.in);
 
         // Intro and quality options
@@ -80,16 +85,21 @@ public class Main {
         String qualityChoice = scanner.nextLine();
         // Size options. Price is directly affected by size option (use if loop)
         System.out.println("Select your desired size: ");
-        System.out.println("T) Travel 0.5 fl oz, " +
-                "S) Standard 1.0 fl oz" +
-                "V) Value 2.0 fl oz"); //display prices for choice
+        System.out.println("T) Travel 0.5 fl oz");
+        System.out.println("Travel price: $5 " + "Luxury travel price: $15");
+        System.out.println();
+        System.out.println("S) Standard 1.0 fl oz");
+        System.out.println("Standard price: $10 " + "Luxury standard price: $30");
+        System.out.println();
+        System.out.println("V) Value 2.0 fl oz");
+        System.out.println("Value price: $15 " + "Luxury value price: $45");
         String sizeChoice = scanner.nextLine();
         // Shade options
-        System.out.println("Select your desired shade: ");
-        System.out.println(" F) Fair " +
-                " M) Medium " +
-                " D) Dark " +
-                " DE) Deep");
+        System.out.println(" Select your desired shade: ");
+        System.out.println( " F) Fair " +
+                            " M) Medium " +
+                            " D) Dark " +
+                            " DE) Deep");
         String shadeChoice = scanner.nextLine();
         // Form options
         System.out.println("Select a foundation formulation: ");
@@ -117,7 +127,8 @@ public class Main {
         System.out.println(foundation.getTotal());
     }
 
-    public static void addNewPowderOrder() {
+    public static void addNewPowderOrder()
+    {
         Scanner scanner = new Scanner(System.in);
         // Powder size selection
         System.out.println("Please select a size for translucent powder");
@@ -131,7 +142,8 @@ public class Main {
         System.out.println(powder.getTotal());
     }
 
-    public static void addNewBrushOrder() {
+    public static void addNewBrushOrder()
+    {
         Scanner scanner = new Scanner(System.in);
         // Powder size selection
         System.out.println("Please choose an available option for a brush:");
