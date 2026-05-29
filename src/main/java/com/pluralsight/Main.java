@@ -24,6 +24,8 @@ public class Main {
             System.out.println("Hello Beautiful! What brings you in today?");
             System.out.println("1) New Order");
             System.out.println("0) Exit the application");
+            System.out.println("-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-");
+
             switch (scanner.nextLine().toUpperCase()) {
                 case "1":
                     orderScreen();
@@ -45,12 +47,15 @@ public class Main {
         currentOrder = new Order();
 
         while (true) {
+            System.out.println("=*=*=*=*=*==*=*=*=*=*==*=*=*=*=*=");
             System.out.println("What would you like to order?");
             System.out.println("1) New foundation");
             System.out.println("2) New powder");
             System.out.println("3) New brush");
             System.out.println("4) Checkout");
             System.out.println("0) Cancel order");
+            System.out.println("=*=*=*=*=*==*=*=*=*=*==*=*=*=*=*=");
+
             switch (scanner.nextLine().toUpperCase()) {
                 case "1":
                     addNewFoundationOrder();
@@ -62,10 +67,55 @@ public class Main {
                     addNewBrushOrder();
                     break;
                 case "4":
-                    System.out.println("Checkout");
-                    orders.add(currentOrder);
-                    receiptWriter.saveReceipt(currentOrder);
-                    return;
+                    // Display order summary for verification
+                    System.out.println();
+                    System.out.println("-*-*-*-*-*-*-[ ORDER SUMMARY ]-*-*-*-*-*-*-");
+                    System.out.println();
+
+                    System.out.println("-*-*-*-*-*-*-[ FOUNDATIONS ]-*-*-*-*-*-*-");
+                    for (Foundation i : currentOrder.foundations())
+                    {
+                        System.out.println(i.toString());
+                    }
+
+                    System.out.println();
+                    System.out.println("-*-*-*-*-*-*-[ BRUSHES ]-*-*-*-*-*-*-*-");
+                    for (Brush i : currentOrder.brushes())
+                    {
+                        System.out.println(i.toString());
+                    }
+
+                    System.out.println();
+                    System.out.println("-*-*-*-*-*-*-[ POWDERS ]-*-*-*-*-*-*-*-");
+                    for (Powder i : currentOrder.powders())
+                    {
+                        System.out.println(i.toString());
+                    }
+
+                    System.out.println();
+                    System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~");
+                    System.out.println("TOTAL: $" + String.format("%.2f", currentOrder.getTotal()));
+                    System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~");
+
+                    // Ask user to confirm
+                    System.out.println();
+                    System.out.println("Would you like to confirm your order?");
+                    System.out.println("Y) Yes  N) No");
+                    String confirm = scanner.nextLine();
+
+                    if (confirm.toUpperCase().equals("Y"))
+                    {
+                        orders.add(currentOrder);
+                        receiptWriter.saveReceipt(currentOrder);
+                        System.out.println("Thank you for shopping at Pretty Radiant!");
+                        return;
+                    }
+                    else
+                    {
+                        System.out.println("You will now be returned to the order menu");
+                    }
+                    break;
+
                 case "0":
                     System.out.println("You have canceled your order.");
                     return;
@@ -81,11 +131,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         // Intro and quality options
+        System.out.println("=*=*=*=*=*==*=*=*=*=*==*=*=*=*=*=");
         System.out.println("Let's build your perfect foundation!");
         System.out.println("Select a quality preference: ");
-        System.out.println("S) Standard or L) Luxury"); //Display prices for choice
+        System.out.println("S) Standard or L) Luxury");
         String qualityChoice = scanner.nextLine();
-        // Size options. Price is directly affected by size option (use if loop)
+
+        // Size options. Price is directly affected by size option
+        System.out.println("=*=*=*=*=*==*=*=*=*=*==*=*=*=*=*=");
         System.out.println("Select your desired size: ");
         System.out.println("T) Travel 0.5 fl oz");
         System.out.println("Travel price: $5 " + "Luxury travel price: $15");
@@ -96,30 +149,37 @@ public class Main {
         System.out.println("V) Value 2.0 fl oz");
         System.out.println("Value price: $15 " + "Luxury value price: $45");
         String sizeChoice = scanner.nextLine();
+
         // Shade options
+        System.out.println("=*=*=*=*=*==*=*=*=*=*==*=*=*=*=*=");
         System.out.println(" Select your desired shade: ");
         System.out.println( " F) Fair " +
                             " M) Medium " +
                             " D) Dark " +
                             " DE) Deep");
         String shadeChoice = scanner.nextLine();
+
         // Form options
+        System.out.println("=*=*=*=*=*==*=*=*=*=*==*=*=*=*=*=");
         System.out.println("Select a foundation formulation: ");
         System.out.println("L) Liquid or P) Powder");
         String formChoice = scanner.nextLine();
 
         // Finish options
+        System.out.println("=*=*=*=*=*==*=*=*=*=*==*=*=*=*=*=");
         System.out.println("Select a finish: ");
         System.out.println("D) Dewy or M) Matte");
         String finishChoice = scanner.nextLine();
 
         // Skin-type choices
+        System.out.println("=*=*=*=*=*==*=*=*=*=*==*=*=*=*=*=");
         System.out.println("What is your skin type?");
         System.out.println(("O) Oily, D) Dry or C) Combo"));
         String skinChoice = scanner.nextLine();
 
         //Fragrance choices - premium
-        System.out.println("Select a fragrance option");
+        System.out.println("=*=*=*=*=*==*=*=*=*=*==*=*=*=*=*=");
+        System.out.println("Would you like to add a special fragrance, or go fragrance free?");
         System.out.println("F) Fragrance or FF) Fragrance-Free");
         String fragranceChoice = scanner.nextLine();
 
@@ -134,8 +194,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         // Powder size selection
         System.out.println("Please select a size for translucent powder");
-        System.out.println(" T) Travel size 0.25 oz " +
-                " S) Standard size 1.0 oz");
+        System.out.println("T) Travel size 0.25 oz " + " S) Standard size 1.0 oz");
+        System.out.println("Travel price: $10 " + " Standard price: $15");
         String pSizeChoice = scanner.nextLine();
 
         //Instance of powder
@@ -150,6 +210,7 @@ public class Main {
         // Powder size selection
         System.out.println("Please choose an available option for a brush:");
         System.out.println(" S) Vegan Standard size 6.0 in");
+        System.out.println();
         String bSizeChoice = scanner.nextLine();
 
         //Instance of brush

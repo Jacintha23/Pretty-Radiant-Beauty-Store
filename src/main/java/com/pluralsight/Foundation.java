@@ -181,10 +181,10 @@ public class Foundation extends Order
         return "Foundation | " +
                 qualityLabel + " | " +
                 sizeLabel + " | " +
-                "Shade: " + shade + " | " +
+                "Shade: " + shade + "\n" +
                 "Form: " + form + " | " +
                 "Finish: " + finish + " | " +
-                "Skin Type: " + skinType + " | " +
+                "Skin Type: " + skinType +  "\n" +
                 "Fragrance: " + fragrance + " | " +
                 "Price: $" + String.format("%.2f", getTotal());
     }
