@@ -5,26 +5,22 @@ import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main
-{
+public class Main {
 
-   static ArrayList<Order> orders = new ArrayList<Order>();
+    static ArrayList<Order> orders = new ArrayList<Order>();
 
 
-   public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         HomeScreen();
     }
-    public static void HomeScreen()
-    {
+
+    public static void HomeScreen() {
         Scanner scanner = new Scanner(System.in);
-        while(true)
-        {
+        while (true) {
             System.out.println("Hello Beautiful! What brings you in today?");
             System.out.println("1) New Order");
             System.out.println("0) Exit the application");
-            switch (scanner.nextLine().toUpperCase())
-            {
+            switch (scanner.nextLine().toUpperCase()) {
                 case "1":
                     orderScreen();
                     break;
@@ -38,20 +34,19 @@ public class Main
     }
 
     // Add second menu
-    public static void orderScreen()
-    {
+    public static void orderScreen() {
         Scanner scanner = new Scanner(System.in);
+        //Temporary position
+        ReceiptWriter receiptWriter = new ReceiptWriter();
 
-        while(true)
-        {
+        while (true) {
             System.out.println("What would you like to order?");
             System.out.println("1) New foundation");
             System.out.println("2) New powder");
             System.out.println("3) New brush");
             System.out.println("4) Checkout");
             System.out.println("0) Cancel order");
-            switch (scanner.nextLine().toUpperCase())
-            {
+            switch (scanner.nextLine().toUpperCase()) {
                 case "1":
                     addNewFoundationOrder();
                     break;
@@ -63,6 +58,7 @@ public class Main
                     break;
                 case "4":
                     System.out.println("Checkout");
+                    receiptWriter.saveReceipt(orders.getLast());
                     break;
                 case "0":
                     System.out.println("You have canceled your order.");
@@ -74,8 +70,7 @@ public class Main
     }
 
 
-    public static void addNewFoundationOrder()
-    {
+    public static void addNewFoundationOrder() {
         Scanner scanner = new Scanner(System.in);
 
         // Intro and quality options
@@ -86,15 +81,15 @@ public class Main
         // Size options. Price is directly affected by size option (use if loop)
         System.out.println("Select your desired size: ");
         System.out.println("T) Travel 0.5 fl oz, " +
-                           "S) Standard 1.0 fl oz" +
-                           "V) Value 2.0 fl oz"); //display prices for choice
+                "S) Standard 1.0 fl oz" +
+                "V) Value 2.0 fl oz"); //display prices for choice
         String sizeChoice = scanner.nextLine();
         // Shade options
         System.out.println("Select your desired shade: ");
         System.out.println(" F) Fair " +
-                           " M) Medium " +
-                           " D) Dark " +
-                           " DE) Deep");
+                " M) Medium " +
+                " D) Dark " +
+                " DE) Deep");
         String shadeChoice = scanner.nextLine();
         // Form options
         System.out.println("Select a foundation formulation: ");
@@ -117,18 +112,17 @@ public class Main
         String fragranceChoice = scanner.nextLine();
 
         // Instance of foundation
-        Foundation foundation = new Foundation(qualityChoice, sizeChoice, shadeChoice,formChoice,finishChoice, skinChoice,fragranceChoice);
+        Foundation foundation = new Foundation(qualityChoice, sizeChoice, shadeChoice, formChoice, finishChoice, skinChoice, fragranceChoice);
         orders.add(foundation);
         System.out.println(foundation.getTotal());
     }
 
-    public static void addNewPowderOrder()
-    {
+    public static void addNewPowderOrder() {
         Scanner scanner = new Scanner(System.in);
         // Powder size selection
         System.out.println("Please select a size for translucent powder");
         System.out.println(" T) Travel size 0.25 oz " +
-                           " S) Standard size 1.0 oz");
+                " S) Standard size 1.0 oz");
         String pSizeChoice = scanner.nextLine();
 
         //Instance of powder
@@ -137,6 +131,17 @@ public class Main
         System.out.println(powder.getTotal());
     }
 
+    public static void addNewBrushOrder() {
+        Scanner scanner = new Scanner(System.in);
+        // Powder size selection
+        System.out.println("Please choose an available option for a brush:");
+        System.out.println(" S) Vegan Standard size 6.0 in");
+        String bSizeChoice = scanner.nextLine();
 
+        //Instance of brush
+        Brush brush = new Brush(bSizeChoice);
+        orders.add(brush);
+        System.out.println(brush.getTotal());
+    }
 
 }
