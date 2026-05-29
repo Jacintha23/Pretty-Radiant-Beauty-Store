@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Main {
 
     static ArrayList<Order> orders = new ArrayList<Order>();
+    static Order currentOrder;
 
 
     public static void main(String[] args)
@@ -40,8 +41,8 @@ public class Main {
     public static void orderScreen()
     {
         Scanner scanner = new Scanner(System.in);
-        //Temporary position
         ReceiptWriter receiptWriter = new ReceiptWriter();
+        currentOrder = new Order();
 
         while (true) {
             System.out.println("What would you like to order?");

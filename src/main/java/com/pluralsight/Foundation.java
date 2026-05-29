@@ -165,12 +165,29 @@ public class Foundation extends Order
 
     public String toString()
     {
-        // public Foundation(String quality, String size, String shade,
-        //                      String form, String finish, String skinType,
-        //                      String fragrance)
-       return this.quality + " | " +this.size+ " | " + this.shade + " | " + this.form + " | " + this.finish + " | " + this.skinType + " | " + this.fragrance +"|" + this.getTotal();
+        // Convert quality code to readable label
+        String qualityLabel = quality.toUpperCase().equals("L") ? "Luxury" : "Standard";
 
-    };
+        // Convert size code to readable label
+        String sizeLabel;
+        switch(size.toUpperCase())
+        {
+            case "T": sizeLabel = "Travel (0.5 fl oz)"; break;
+            case "S": sizeLabel = "Standard (1.0 fl oz)"; break;
+            case "V": sizeLabel = "Value (2.0 fl oz)"; break;
+            default:  sizeLabel = size;
+        }
+
+        return "Foundation | " +
+                qualityLabel + " | " +
+                sizeLabel + " | " +
+                "Shade: " + shade + " | " +
+                "Form: " + form + " | " +
+                "Finish: " + finish + " | " +
+                "Skin Type: " + skinType + " | " +
+                "Fragrance: " + fragrance + " | " +
+                "Price: $" + String.format("%.2f", getTotal());
+    }
 
 
 
