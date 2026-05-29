@@ -27,7 +27,7 @@ public class Foundation extends Order
     private String form;
     private String finish;
     private String skinType;
-    private String fragrance;
+    private String fragrance; // with Fragrance premium option
     //private boolean cruelty;
 
     public Foundation(String quality, String size, String shade,
@@ -162,6 +162,15 @@ public class Foundation extends Order
         return total;
 
     }
+
+    public String toString()
+    {
+        // public Foundation(String quality, String size, String shade,
+        //                      String form, String finish, String skinType,
+        //                      String fragrance)
+       return this.quality + " | " +this.size+ " | " + this.shade + " | " + this.form + " | " + this.finish + " | " + this.skinType + " | " + this.fragrance +"|" + this.getTotal();
+
+    };
 
 
 
