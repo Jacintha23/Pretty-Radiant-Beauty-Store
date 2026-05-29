@@ -64,9 +64,8 @@ public class Powder extends Order
 
     public String toString()
     {
-        // public Foundation(String quality, String size, String shade,
-        //                      String form, String finish, String skinType,
-        //                      String fragrance)
+        // public Powder(String powderSize)
+
         return this.powderSize + " | " +this.getTotal();
     };
 
