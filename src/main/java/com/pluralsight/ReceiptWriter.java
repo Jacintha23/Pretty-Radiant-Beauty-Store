@@ -1,5 +1,6 @@
 package com.pluralsight;
 
+import java.io.File;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,55 +12,70 @@ public class ReceiptWriter
     public void saveReceipt(Order order)
     {
         // generate filename using current date/time (yyyyMMdd-HHmmss.txt)
-        LocalDateTime date = LocalDateTime.now();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
-        String filename = "src/main/resources/Receipts"+ date.format(dtf) + ".txt";
-        System.out.println(filename);
-        // create a FileWriter and wrap in BufferedWriter (src/main/resources/receipts)
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, false)))
-        {
-            // loop through all order items
-            // - write the items to the to receipt
-            for(Foundation i : order.foundations()) // loop through al foundations and print
-           {
-              writer.write(i.toString());
-              writer.newLine();
-           }
-
-            for(Brush i : order.brushes()) // loop through al foundations and print
-            {
-                writer.write(i.toString());
-                writer.newLine();
-            }
-
-            for(Powder i : order.powders()) // loop through al foundations and print
-            {
-                writer.write(i.toString());
-                writer.newLine();
-            }
-            // close BufferedWriter
-
-           writer.close();
-        } catch (IOException var6) {
-            System.out.println("There was an error with this transaction.");
+        File directory = new File("src/main/resources/Receipts");
+        if (!directory.exists()) {
+            directory.mkdirs();
         }
 
+        String filename = "src/main/resources/Receipts/" + generateTimestamp() + ".txt";
+        System.out.println(filename);
 
-        //write total cost
+        // create a FileWriter and wrap in BufferedWriter (src/main/resources/receipts)
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true)))
+        {
+            // loop through all order items
+            // - write the items to the receipt
+            writer.write("-*-*-*-*-*-[ PRETTY RADIANT ]-*-*-*-*-*-");
+            writer.newLine();
+            writer.newLine();
 
+            writer.write("-*-*-*-*-*-*-[ FOUNDATIONS ]-*-*-*-*-*-*-");
+            writer.newLine();
+            for (Foundation i : order.foundations()) // loop through all foundations and print
+            {
+                writer.write(i.toString());
+                writer.newLine();
+            }
+            writer.newLine();
 
-        // handle IOException with error message
+            writer.write("-*-*-*-*-*-*-[ BRUSHES ]-*-*-*-*-*-");
+            writer.newLine();
+            for (Brush i : order.brushes()) // loop through all brushes and print
+            {
+                writer.write(i.toString());
+                writer.newLine();
+            }
+            writer.newLine();
+
+            writer.write("-*-*-*-*-*-*-[ POWDERS ]-*-*-*-*-*-*-");
+            writer.newLine();
+            for (Powder i : order.powders()) // loop through all powders and print
+            {
+                writer.write(i.toString());
+                writer.newLine();
+            }
+            writer.newLine();
+
+            // write total cost
+            writer.write("============================================");
+            writer.newLine();
+            writer.write("TOTAL: $" + order.getTotal());
+            writer.newLine();
+            writer.write("============================================");
+            writer.newLine();
+
+            // handle IOException with error message
+        } catch (IOException e) {
+            System.out.println("There was an error with this transaction.");
+        }
     }
 
     private static String generateTimestamp()
     {
         // Create timestamp string using a formatter
         // return that string
-        return "";
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+        return LocalDateTime.now().format(dtf);
     }
-
-
-
-
-
+    //NOTE: New transaction doesn't appear in receipt file UNTIL the program is rerun.
 }
