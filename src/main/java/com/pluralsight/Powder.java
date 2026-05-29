@@ -18,23 +18,28 @@ public class Powder extends Order
         this.powderSize = powderSize;
     }
 
-    public String powderSize() {
+    public String powderSize()
+    {
         return powderSize;
     }
 
-    public double travelPSize() {
+    public double travelPSize()
+    {
         return travelPSize;
     }
 
-    public double standardPSize() {
+    public double standardPSize()
+    {
         return standardPSize;
     }
 
-    public double travelPPrice() {
+    public double travelPPrice()
+    {
         return travelPPrice;
     }
 
-    public double standardPPrice() {
+    public double standardPPrice()
+    {
         return standardPPrice;
     }
 
@@ -55,8 +60,16 @@ public class Powder extends Order
 
         return total;
 
-
     }
+
+    public String toString()
+    {
+        // public Foundation(String quality, String size, String shade,
+        //                      String form, String finish, String skinType,
+        //                      String fragrance)
+        return this.powderSize + " | " +this.getTotal();
+    };
+
 }
 
 
